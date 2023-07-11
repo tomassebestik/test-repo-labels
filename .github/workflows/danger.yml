@@ -1,11 +1,26 @@
 name: DangerJS Check
-on: [push, pull_request]
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+    branches:
+      - '*'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  checks: read
+  contents: read
+  issues: write
+  pull-requests: write
+  security-events: read
+  statuses: write
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: Run DangerJS
       uses: tomassebestik/reusable-danger@master  # replace with your repo details
