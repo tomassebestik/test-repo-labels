@@ -1,0 +1,13 @@
+name: DangerJS Check
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Run DangerJS
+      uses: tomassebestik/reusable-danger@master  # replace with your repo details
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
