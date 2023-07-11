@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Run DangerJS
-      uses: tomassebestik/reusable-danger@master  # replace with your repo details
+    - name: DangerJS pull request linter
+      uses: espressif/github-actions/danger_pr_review@danger_pr_review
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
